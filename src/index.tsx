@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import AppProvider from "./provider";
 import RecoilProvider from "./provider/Recoil";
 import RouterProvider from "./provider/Router";
 import StyleProvider from "./provider/Style";
@@ -12,13 +13,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RecoilProvider>
-      <StyleProvider>
-        <RouterProvider>
-          <App />
-        </RouterProvider>
-      </StyleProvider>
-    </RecoilProvider>
+    <AppProvider>
+      <App />
+    </AppProvider>
   </React.StrictMode>
 );
 

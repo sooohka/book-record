@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useCallback } from "react";
-import Button from "../Button";
+// import Button from "../Button";
 import SearchInput from "./SearchInput";
 import S from "./Style";
 
 type Props = {
-  handleSubmit: (e: any) => void;
+  handleSubmit: React.FormEventHandler;
   input: string;
   setInput: React.Dispatch<React.SetStateAction<string>>;
 };
@@ -32,9 +32,10 @@ function SearchBar(props: Props) {
           handleXCircleButtonClick={clearInput}
           handleInputChange={handleInputChange}
         />
-        <Button aria-label="search" type="submit" variant="outlined">
-          검색
-        </Button>
+
+        {/* <Button aria-label="search" type="submit" variant="outlined">
+          검색 //TODO:검색버튼
+        </Button> */}
       </S.Form>
     </S.Container>
   );

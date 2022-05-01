@@ -43,6 +43,7 @@ const theme: DefaultTheme = {
   },
   zIndex: {
     header: 10,
+    footer: 10,
     backDrop: 100,
     modal: 150,
   },

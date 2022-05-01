@@ -44,6 +44,7 @@ declare module "styled-components" {
     };
     zIndex: {
       header: number;
+      footer: number;
       backDrop: number;
       modal: number;
     };

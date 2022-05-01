@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -25,18 +21,13 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     color: ${({ theme }) => theme.colors.white};
   };
-  a,a:any-link{
-    color:inherit;
-    text-decoration: none;
-    :focus-visible {
-    
-    outline: blue auto 2px;
-    outline: -webkit-focus-ring-color auto 1px;
-  }
-  }
-
+  
   #root {
     flex: 1;
+    display: flex;
+  }
+  #root > div{
+    flex:1;
   }
 `;
 

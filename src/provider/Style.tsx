@@ -1,5 +1,7 @@
 import React, { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
+import { Reset } from "styled-reset";
+import GlobalStyle from "../styles/global";
 import theme from "../styles/theme";
 
 type Props = {
@@ -7,7 +9,13 @@ type Props = {
 };
 
 function StyleProvider({ children }: Props) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Reset />
+      <GlobalStyle />
+      {children}
+    </ThemeProvider>
+  );
 }
 
 export default StyleProvider;
