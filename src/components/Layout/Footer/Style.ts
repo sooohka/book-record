@@ -5,6 +5,13 @@ const Container = styled.footer`
   height: ${({ theme }) => theme.size.footer.height};
 
   display: flex;
+
+  padding: 0.4rem 0;
+  border-top-width: 2px;
+  border-style: solid;
+  border-color: ${({ theme }) => theme.colors.gray[500]};
+
+  background-color: transparent;
 `;
 
 const LinkContainer = styled.div`
@@ -14,8 +21,6 @@ const LinkContainer = styled.div`
   display: flex;
 
   width: 100%;
-
-  background-color: white;
 `;
 
 const S = { Container, LinkContainer };

@@ -1,5 +1,10 @@
 import "styled-components";
 
+type Size = {
+  width?: string;
+  height?: string;
+};
+
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {

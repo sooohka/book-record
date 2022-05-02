@@ -35,10 +35,10 @@ const theme: DefaultTheme = {
       height: "15rem",
     },
     header: {
-      height: "7rem",
+      height: "5rem",
     },
     footer: {
-      height: "7rem",
+      height: "5rem",
     },
   },
   zIndex: {

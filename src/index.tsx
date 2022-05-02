@@ -2,9 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import AppProvider from "./provider";
-import RecoilProvider from "./provider/Recoil";
-import RouterProvider from "./provider/Router";
-import StyleProvider from "./provider/Style";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(

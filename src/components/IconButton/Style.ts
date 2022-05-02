@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Size } from "../../@types/style";
 
-const Container = styled.button`
+const Container = styled.button<Size>`
   position: relative;
 
   flex-direction: column;
@@ -9,13 +10,15 @@ const Container = styled.button`
   display: flex;
   cursor: pointer;
 
-  width: 7rem;
-  height: 100%;
+  width: ${({ width }) => width || "100%"};
+  height: ${({ height }) => height || "100%"};
+  padding: 0;
 
   border: none;
 
-  background-color: white;
+  background-color: transparent;
 
+  color: ${({ color }) => color || "white"};
   ::after {
     content: "";
 
