@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     height: 100%;
     flex-direction: column;
-    background-color: ${({ theme }) => theme.colors.gray[700]};
+    background-color: ${({ theme }) => theme.colors.gray[900]};
     font-size: 1.4rem;
     overflow: hidden;
     color: ${({ theme }) => theme.colors.white};

@@ -5,6 +5,11 @@ type Size = {
   height?: string;
 };
 
+type Color = {
+  bgColor?: string;
+  color?: string;
+};
+
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {

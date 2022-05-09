@@ -12,6 +12,8 @@ function Footer() {
       <S.LinkContainer>
         <IconButton
           onClick={() => navigate("/search")}
+          width="4rem"
+          height="4rem"
           Icon={SearchIcon}
           label="search"
         />
@@ -19,6 +21,8 @@ function Footer() {
       <S.LinkContainer>
         <IconButton
           onClick={() => navigate("/favorites")}
+          width="4rem"
+          height="4rem"
           Icon={HeartIcon}
           label="favorites"
         />

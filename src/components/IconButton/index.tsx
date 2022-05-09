@@ -10,7 +10,7 @@ type Props = {
 const IconButton = forwardRef<HTMLButtonElement, Props>(
   ({ Icon, label, ...rest }, ref) => (
     <S.Container {...rest} ref={ref}>
-      <Icon />
+      <Icon strokeWidth="1px" />
       {label ? <S.Label>{label}</S.Label> : null}
     </S.Container>
   )

@@ -13,7 +13,7 @@ const Container = styled.div`
   border-radius: 5px;
   padding: 0.7rem 1rem;
 
-  background-color: ${({ theme }) => theme.colors.gray[900]};
+  background-color: ${({ theme }) => theme.colors.gray[700]};
 `;
 
 const Input = styled.input`

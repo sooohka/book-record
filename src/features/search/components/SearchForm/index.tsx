@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback } from "react";
-// import Button from "../Button";
+import Button from "../../../../components/Button";
 import SearchInput from "./SearchInput";
 import S from "./Style";
 
@@ -9,7 +9,7 @@ type Props = {
   setInput: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function SearchBar(props: Props) {
+function SearchForm(props: Props) {
   const { handleSubmit, input, setInput } = props;
 
   const clearInput = useCallback(() => {
@@ -25,20 +25,17 @@ function SearchBar(props: Props) {
   );
 
   return (
-    <S.Container>
-      <S.Form onSubmit={handleSubmit}>
-        <SearchInput
-          inputValue={input}
-          handleXCircleButtonClick={clearInput}
-          handleInputChange={handleInputChange}
-        />
-
-        {/* <Button aria-label="search" type="submit" variant="outlined">
-          검색 //TODO:검색버튼
-        </Button> */}
-      </S.Form>
-    </S.Container>
+    <S.Form onSubmit={handleSubmit}>
+      <SearchInput
+        inputValue={input}
+        handleXCircleButtonClick={clearInput}
+        handleInputChange={handleInputChange}
+      />
+      <Button aria-label="search" type="submit" variant="outlined">
+        검색
+      </Button>
+    </S.Form>
   );
 }
 
-export default SearchBar;
+export default SearchForm;

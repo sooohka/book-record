@@ -14,7 +14,9 @@ function Header() {
         </Link>
       </S.LogoBox>
       <S.ToolBox>
-        <IconButton width="3rem" Icon={SearchIcon} />
+        <Link to="/search">
+          <IconButton width="3rem" Icon={SearchIcon} />
+        </Link>
         <IconButton width="3rem" Icon={HeartIcon} />
       </S.ToolBox>
       <S.Avatar>

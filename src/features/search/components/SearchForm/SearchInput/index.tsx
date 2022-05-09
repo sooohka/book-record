@@ -12,7 +12,6 @@ function SearchInput(props: Props) {
 
   return (
     <S.Container>
-      <S.SearchIcon />
       <S.Input
         value={inputValue}
         onChange={handleInputChange}
