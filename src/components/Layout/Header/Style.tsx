@@ -2,16 +2,21 @@ import styled from "styled-components";
 
 const Container = styled.header`
   position: sticky;
-  top: 0;
+  top: -1px;
   gap: 1rem;
 
   display: flex;
-
   overflow: hidden;
+
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-color: ${({ theme }) => theme.colors.gray[500]};
 
   width: 100%;
   height: ${({ theme }) => theme.size.header.height};
   padding: 1rem 1rem;
+
+  background-color: ${({ theme }) => theme.colors.gray[900]};
 `;
 
 const LogoBox = styled.div`

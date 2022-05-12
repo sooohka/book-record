@@ -1,14 +1,12 @@
-import React from "react";
-import SearchListItem from "./SearchListItem";
+import React, { ReactNode } from "react";
 import S from "./Style";
 
-function SearchList() {
-  return (
-    <S.Container>
-      <SearchListItem />
-      <SearchListItem />
-    </S.Container>
-  );
+type Props = {
+  children: ReactNode;
+};
+
+function SearchList({ children }: Props) {
+  return <S.Container>{children}</S.Container>;
 }
 
 export default SearchList;

@@ -3,6 +3,8 @@ import styled from "styled-components";
 const Container = styled.footer`
   justify-content: space-between;
   height: ${({ theme }) => theme.size.footer.height};
+  position: sticky;
+  bottom: -1px;
 
   display: flex;
 
@@ -11,7 +13,7 @@ const Container = styled.footer`
   border-style: solid;
   border-color: ${({ theme }) => theme.colors.gray[500]};
 
-  background-color: transparent;
+  background-color: ${({ theme }) => theme.colors.gray[900]};
 `;
 
 const LinkContainer = styled.div`

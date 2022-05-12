@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import IconButton from "../../../../components/IconButton";
 import SearchForm from "../../components/SearchForm";
 import SearchList from "../../components/SearchList";
+import SearchListItem from "../../components/SearchList/SearchListItem";
 import S from "./Style";
 
 function SearchPage() {
@@ -27,7 +28,9 @@ function SearchPage() {
         />
       </S.Header>
       <S.Content>
-        <SearchList />
+        <SearchList>
+          <SearchListItem />
+        </SearchList>
       </S.Content>
     </S.Container>
   );

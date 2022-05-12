@@ -1,4 +1,4 @@
-import { HeartIcon, SearchIcon } from "@heroicons/react/solid";
+import { HeartIcon, SearchIcon, BookmarkIcon } from "@heroicons/react/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import IconButton from "../../IconButton";
@@ -25,6 +25,15 @@ function Footer() {
           height="4rem"
           Icon={HeartIcon}
           label="favorites"
+        />
+      </S.LinkContainer>
+      <S.LinkContainer>
+        <IconButton
+          onClick={() => navigate("/finished")}
+          width="4rem"
+          height="4rem"
+          Icon={BookmarkIcon}
+          label="finished"
         />
       </S.LinkContainer>
     </S.Container>

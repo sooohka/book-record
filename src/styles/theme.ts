@@ -40,6 +40,9 @@ const theme: DefaultTheme = {
     footer: {
       height: "5rem",
     },
+    bookItem: {
+      height: "9rem",
+    },
   },
   zIndex: {
     header: 10,

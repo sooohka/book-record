@@ -51,6 +51,9 @@ declare module "styled-components" {
       footer: {
         height: string;
       };
+      bookItem: {
+        height: string;
+      };
     };
     zIndex: {
       header: number;
