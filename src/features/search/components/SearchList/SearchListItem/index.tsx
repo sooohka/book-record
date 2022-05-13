@@ -1,16 +1,35 @@
 import { SearchIcon } from "@heroicons/react/outline";
-import React from "react";
+import React, { useContext } from "react";
+import SearchContext from "../../../context/SearchContext";
 import S from "./Style";
 
-function SearchListItem() {
-  // TODO:ListItem click시 검색어로 올라가고 바로 검색되도록 구현
+type Props = {
+  result: string;
+};
+
+function SearchListItem({ result }: Props) {
+  const { setQuery, searchBookList } = useContext(SearchContext);
+
+  const handleClick: React.MouseEventHandler<HTMLLIElement> = (e) => {
+    if (e.currentTarget.textContent) {
+      setQuery(e.currentTarget.textContent);
+      searchBookList(e.currentTarget.textContent);
+    }
+  };
+
+  const handleKeyUp: React.KeyboardEventHandler<HTMLLIElement> = (e) => {
+    if (e.key === " " || e.key === "Enter") {
+      if (e.currentTarget.textContent) {
+        setQuery(e.currentTarget.textContent);
+        searchBookList(e.currentTarget.textContent);
+      }
+    }
+  };
+
   return (
-    <S.Container>
+    <S.Container onKeyUp={handleKeyUp} onClick={handleClick} tabIndex={0}>
       <SearchIcon width="2.5rem" height="2.5rem" />
-      <S.Text>
-        harry potter audio book harry potter audio book harry potter audio book
-        harry potter audio book
-      </S.Text>
+      <S.Text dangerouslySetInnerHTML={{ __html: result }} />
     </S.Container>
   );
 }

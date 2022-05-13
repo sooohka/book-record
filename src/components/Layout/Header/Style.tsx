@@ -7,6 +7,7 @@ const Container = styled.header`
 
   display: flex;
   overflow: hidden;
+  z-index: ${({ theme }) => theme.zIndex.header};
 
   border-style: solid;
   border-bottom-width: 1px;

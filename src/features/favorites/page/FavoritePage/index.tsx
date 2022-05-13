@@ -1,5 +1,5 @@
 import React from "react";
-import AppContainer from "../../../components/Layout/AppContainer";
+import AppContainer from "../../../../components/Layout/AppContainer";
 
 function FavoritesPage() {
   return (

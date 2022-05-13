@@ -1,28 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import SearchContext from "../../../context/SearchContext";
 import S from "./Style";
 import XCircleButton from "./XCircleButton";
 
-type Props = {
-  inputValue: string;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleXCircleButtonClick: () => void;
-};
-function SearchInput(props: Props) {
-  const { inputValue, handleInputChange, handleXCircleButtonClick } = props;
+function SearchInput() {
+  const { clearInput, setInput, input } = useContext(SearchContext);
+
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setInput(e.currentTarget.value);
+  };
 
   return (
     <S.Container>
-      <S.Input
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="검색"
-      />
+      <S.Input value={input} onChange={handleInputChange} placeholder="검색" />
       <XCircleButton
         aria-label="reset input text"
         type="reset"
-        onClick={handleXCircleButtonClick}
-        onTouchEnd={handleXCircleButtonClick}
-        hidden={Boolean(inputValue) === false}
+        onClick={clearInput}
+        hidden={input === ""}
       />
     </S.Container>
   );

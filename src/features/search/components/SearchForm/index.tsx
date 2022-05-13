@@ -1,36 +1,20 @@
-import React, { ChangeEvent, useCallback } from "react";
+import React, { useContext } from "react";
 import Button from "../../../../components/Button";
+import SearchContext from "../../context/SearchContext";
 import SearchInput from "./SearchInput";
 import S from "./Style";
 
-type Props = {
-  handleSubmit: React.FormEventHandler;
-  input: string;
-  setInput: React.Dispatch<React.SetStateAction<string>>;
-};
+function SearchForm() {
+  const { searchBookList, input } = useContext(SearchContext);
 
-function SearchForm(props: Props) {
-  const { handleSubmit, input, setInput } = props;
-
-  const clearInput = useCallback(() => {
-    setInput("");
-  }, [setInput]);
-
-  const handleInputChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      const { value } = e.target;
-      setInput(value);
-    },
-    [setInput]
-  );
+  const handleSubmit: React.FormEventHandler = (e) => {
+    e.preventDefault();
+    searchBookList(input);
+  };
 
   return (
     <S.Form onSubmit={handleSubmit}>
-      <SearchInput
-        inputValue={input}
-        handleXCircleButtonClick={clearInput}
-        handleInputChange={handleInputChange}
-      />
+      <SearchInput />
       <Button aria-label="search" type="submit" variant="outlined">
         검색
       </Button>

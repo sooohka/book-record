@@ -1,22 +1,31 @@
-import React, { useEffect, useState } from "react";
-import getBooks from "../../../../api/getBooks";
-import BookListContainer from "../../../../components/BookList";
+import React, { Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import AppContainer from "../../../../components/Layout/AppContainer";
+import Spinner from "../../../../components/Spinner";
+import { searchPageState, searchQueryState } from "../../../../store/search";
+import getQueryParam from "../../../../util/getQueryParm";
+import RecoilBookListContainer from "../../../books/container/RecoilBookListContainer";
 
 function SearchResultPage() {
-  const [data, setData] = useState<Book[]>([]);
+  const { search } = useLocation();
+  const setQuery = useSetRecoilState(searchQueryState);
+  const setPage = useSetRecoilState(searchPageState);
 
   useEffect(() => {
-    getBooks({ query: "2019" })
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((e) => console.log());
-  }, []);
+    // FIXME: 제대로 고치기
+    const query = getQueryParam(search, "query");
+    const page = getQueryParam(search, "page");
+
+    setQuery(query);
+    setPage(Number(page) || 1);
+  }, [search, setPage, setQuery]);
 
   return (
     <AppContainer>
-      <BookListContainer value={{ books: data }} />
+      <Suspense fallback={<Spinner />}>
+        <RecoilBookListContainer />
+      </Suspense>
     </AppContainer>
   );
 }

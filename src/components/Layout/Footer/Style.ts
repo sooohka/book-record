@@ -7,6 +7,7 @@ const Container = styled.footer`
   bottom: -1px;
 
   display: flex;
+  z-index: ${({ theme }) => theme.zIndex.footer};
 
   padding: 0.4rem 0;
   border-top-width: 2px;

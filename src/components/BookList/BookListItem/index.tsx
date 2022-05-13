@@ -11,9 +11,10 @@ function BookListItem(props: Props) {
   const {
     book: { author, description, image, isbn, link, pubdate, publisher, title },
   } = props;
+  // TODO:img 없는경우 처리
   return (
     // TODO:Container 클릭시 모달 열리게 하기, link modal에 전달
-    <S.Container>
+    <S.Container tabIndex={0}>
       <S.BookImg src={image} alt={title} />
       <S.InfoBox>
         <S.Title dangerouslySetInnerHTML={{ __html: title }} />

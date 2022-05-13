@@ -1,17 +1,17 @@
-import React from "react";
-import BookList from "./BookList";
-import { ContextProvider, ContextType } from "./context";
+import React, { useContext } from "react";
+import BookListItem from "./BookListItem";
+import BookListContext from "../../features/books/context/BookListContext";
+import S from "./Style";
 
-type Props = {
-  value: ContextType;
-};
-
-function BookListContainer({ value }: Props) {
+function BookList() {
+  const { books } = useContext(BookListContext);
   return (
-    <ContextProvider value={value}>
-      <BookList />
-    </ContextProvider>
+    <S.Container>
+      {books.map((book) => (
+        <BookListItem key={book.isbn} book={book} />
+      ))}
+    </S.Container>
   );
 }
 
-export default BookListContainer;
+export default BookList;

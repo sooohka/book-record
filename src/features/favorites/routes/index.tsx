@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import FavoritesPage from "../components";
+import FavoritesPage from "../page/FavoritePage";
 
 function FavoritesRoute() {
   return (
