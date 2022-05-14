@@ -50,6 +50,7 @@ axiosBookInstance.interceptors.response.use<AxiosResponse<Book[]>>(
         publisher,
         title,
       } = d;
+
       return {
         author,
         description,
@@ -61,6 +62,7 @@ axiosBookInstance.interceptors.response.use<AxiosResponse<Book[]>>(
         title,
       };
     });
+
     return { ...res, data: books };
   },
   // TODO:사소한 에러처리

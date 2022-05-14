@@ -1,12 +1,11 @@
-import React from "react";
-import { useRecoilValue } from "recoil";
-import { searchedWordListState } from "../../../../store/search";
+import React, { useContext } from "react";
+import SearchContext from "../../context/SearchContext";
 import SearchListItem from "./SearchListItem";
 import S from "./Style";
 
 function SearchList() {
-  // const { searchedBookList } = useContext(SearchContext);
-  const searchedWordList = useRecoilValue(searchedWordListState);
+  const { searchedWordList } = useContext(SearchContext);
+
   return (
     <S.Container>
       {searchedWordList.map((result, i) => (

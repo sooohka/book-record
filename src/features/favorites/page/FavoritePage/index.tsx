@@ -1,11 +1,11 @@
 import React from "react";
-import AppContainer from "../../../../components/Layout/AppContainer";
+import AppWrapper from "../../../../components/Layout/AppContainer";
 
 function FavoritesPage() {
   return (
-    <AppContainer>
+    <AppWrapper>
       <div>favorite</div>
-    </AppContainer>
+    </AppWrapper>
   );
 }
 

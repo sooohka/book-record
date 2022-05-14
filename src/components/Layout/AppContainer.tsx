@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
 `;
 
-function AppContainer({ children }: { children: ReactNode }) {
+function AppWrapper({ children }: { children: ReactNode }) {
   return (
     <Container>
       <Header />
@@ -19,4 +19,4 @@ function AppContainer({ children }: { children: ReactNode }) {
   );
 }
 
-export default AppContainer;
+export default AppWrapper;

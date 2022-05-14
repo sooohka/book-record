@@ -1,15 +1,15 @@
 import React, { ReactNode } from "react";
-import RecoilProvider from "./Recoil";
 import RouterProvider from "./Router";
+import StateManagementProvider from "./StateManagement";
 import StyleProvider from "./Style";
 
 function AppProvider({ children }: { children: ReactNode }) {
   return (
-    <RecoilProvider>
+    <StateManagementProvider>
       <StyleProvider>
         <RouterProvider>{children}</RouterProvider>
       </StyleProvider>
-    </RecoilProvider>
+    </StateManagementProvider>
   );
 }
 

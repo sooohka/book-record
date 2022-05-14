@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
+import SearchResultContext from "../../features/search/context/SearchResultContext";
 import BookListItem from "./BookListItem";
-import BookListContext from "../../features/books/context/BookListContext";
 import S from "./Style";
 
 function BookList() {
-  const { books } = useContext(BookListContext);
+  const { books } = useContext(SearchResultContext);
   return (
     <S.Container>
       {books.map((book) => (

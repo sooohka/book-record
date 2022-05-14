@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import IconButton from "../../../../components/IconButton";
 import SearchForm from "../../components/SearchForm";
 import SearchList from "../../components/SearchList";
-import RecoilSearchContainer from "../../container/RecoilSearchContainer";
+import SearchContainer from "../../container/SearchContainer";
 import S from "./Style";
 
 function SearchPage() {
   const navigate = useNavigate();
 
   return (
-    <RecoilSearchContainer>
+    <SearchContainer>
       <S.Container>
         <S.Header>
           <IconButton
@@ -28,7 +28,7 @@ function SearchPage() {
           </Suspense>
         </S.Content>
       </S.Container>
-    </RecoilSearchContainer>
+    </SearchContainer>
   );
 }
 

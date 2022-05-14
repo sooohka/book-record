@@ -3,6 +3,7 @@ function getQueryParam(search: string, target: string) {
   const obj: {
     [index: string]: string;
   } = {};
+
   sp.forEach((s) => {
     if (!s.includes("=")) {
       return;

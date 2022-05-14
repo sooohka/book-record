@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import getBooks from "../api/getBooks";
+import getBooks from "../../api/getBooks";
 
 const searchQueryState = atom({
   key: "searchQueryState",

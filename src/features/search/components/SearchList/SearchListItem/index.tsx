@@ -11,6 +11,7 @@ function SearchListItem({ result }: Props) {
   const { setQuery, searchBookList } = useContext(SearchContext);
 
   const handleClick: React.MouseEventHandler<HTMLLIElement> = (e) => {
+    // TODO: textContent 위험함
     if (e.currentTarget.textContent) {
       setQuery(e.currentTarget.textContent);
       searchBookList(e.currentTarget.textContent);

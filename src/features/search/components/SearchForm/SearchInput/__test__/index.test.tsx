@@ -15,6 +15,7 @@ describe("SearchInput test", () => {
     searchBookList: jest.fn(),
     setInput: jest.fn(),
     setQuery: jest.fn(),
+    searchedWordList: [],
   };
   let value: SearchContextType;
 

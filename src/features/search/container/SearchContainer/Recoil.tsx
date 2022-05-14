@@ -1,9 +1,16 @@
 import React, { ReactNode, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import useDebounce from "../../../hooks/useDebounce";
-import { searchQueryState } from "../../../store/search";
-import { SearchContextProvider } from "../context/SearchContext";
+import {
+  useRecoilValue,
+  useRecoilValueLoadable,
+  useSetRecoilState,
+} from "recoil";
+import useDebounce from "../../../../hooks/useDebounce";
+import {
+  searchedWordListState,
+  searchQueryState,
+} from "../../../../store/recoil/search";
+import { SearchContextProvider } from "../../context/SearchContext";
 
 type Props = {
   children: ReactNode;
@@ -12,6 +19,7 @@ type Props = {
 function RecoilSearchContainer({ children }: Props) {
   const query = useRecoilValue(searchQueryState);
   const setQuery = useSetRecoilState(searchQueryState);
+  const wordList = useRecoilValueLoadable(searchedWordListState);
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -23,8 +31,6 @@ function RecoilSearchContainer({ children }: Props) {
     setQuery(input);
   }, [input, setQuery]);
 
-  useDebounce(handleQueryChange);
-
   const searchBookList = useCallback(
     (_query: string) => {
       navigate(`/search/results?query=${_query}`);
@@ -32,11 +38,14 @@ function RecoilSearchContainer({ children }: Props) {
     [navigate]
   );
 
+  useDebounce(handleQueryChange);
+
   return (
     <SearchContextProvider
       input={input}
       query={query}
       searchBookList={searchBookList}
+      searchedWordList={wordList.state !== "hasValue" ? [] : wordList.contents}
       setInput={setInput}
       setQuery={setQuery}
       clearInput={clearInput}

@@ -1,13 +1,5 @@
-import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-} from "react";
+import React, { createContext, ReactNode } from "react";
 import { SetterOrUpdater } from "recoil";
-import useDebounce from "../../../../hooks/useDebounce";
-import useMount from "../../../../hooks/useMount";
 
 type SearchContextType = {
   query: string;
@@ -15,7 +7,8 @@ type SearchContextType = {
   searchBookList: (_query: string) => void;
   clearInput: () => void;
   setInput: React.Dispatch<React.SetStateAction<string>>;
-  setQuery: SetterOrUpdater<string>;
+  setQuery: SetterOrUpdater<string> | ((query: string) => void);
+  searchedWordList: string[];
 };
 
 const initialValue: SearchContextType = {
@@ -25,6 +18,7 @@ const initialValue: SearchContextType = {
   clearInput: () => {},
   setInput: () => {},
   setQuery: () => {},
+  searchedWordList: [],
 };
 
 const SearchContext = createContext<SearchContextType>(initialValue);
@@ -34,37 +28,9 @@ type Props = {
 } & SearchContextType;
 
 function SearchContextProvider(props: Props) {
-  const { children, input, setQuery, query, setInput, ...rest } = props;
-
-  const handleQueryChange = useCallback(() => {
-    setQuery(input);
-  }, [input, setQuery]);
-
-  useDebounce(handleQueryChange);
-
-  const isMount = useMount();
-
-  const value: SearchContextType = useMemo(
-    () => ({
-      input,
-      setQuery,
-      query,
-      setInput,
-      ...rest,
-    }),
-    [input, query, rest, setInput, setQuery]
-  );
-
-  useEffect(() => {
-    if (isMount) {
-      if (query) {
-        setInput(decodeURI(query));
-      }
-    }
-  }, [isMount, query, setInput]);
-
+  const { children, ...rest } = props;
   return (
-    <SearchContext.Provider value={value}>{children}</SearchContext.Provider>
+    <SearchContext.Provider value={rest}>{children}</SearchContext.Provider>
   );
 }
 
