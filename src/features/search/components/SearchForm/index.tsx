@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import { searchQueryState } from "modules/store/recoil/search";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import Button from "../../../../components/Button";
-import SearchContext from "../../context/SearchContext";
 import SearchInput from "./SearchInput";
 import S from "./Style";
 
 function SearchForm() {
-  const { searchBookList, input } = useContext(SearchContext);
+  const query = useRecoilValue(searchQueryState);
+  const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
-    searchBookList(input);
+    // TODO: debouncing때문에 검색 늦게 되는현상
+    navigate(`/search/results?query=${query}`);
   };
 
   return (

@@ -1,18 +1,27 @@
-import React, { Suspense } from "react";
+import { searchQueryState } from "modules/store/recoil/search";
+import React, { Suspense, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import BookList from "../../../../components/BookList";
 import AppWrapper from "../../../../components/Layout/AppContainer";
 import Spinner from "../../../../components/Spinner";
-import SearchResultContainer from "../../container/SearchResultContainer";
 
 function SearchResultPage() {
+  const [params] = useSearchParams();
+  const setQuery = useSetRecoilState(searchQueryState);
+
+  useEffect(() => {
+    const query = params.get("query") as string;
+    if (!query) return;
+    setQuery(query);
+  }, [params, setQuery]);
+
   return (
-    <SearchResultContainer>
-      <AppWrapper>
-        <Suspense fallback={<Spinner />}>
-          <BookList />
-        </Suspense>
-      </AppWrapper>
-    </SearchResultContainer>
+    <AppWrapper>
+      <Suspense fallback={<Spinner />}>
+        <BookList />
+      </Suspense>
+    </AppWrapper>
   );
 }
 

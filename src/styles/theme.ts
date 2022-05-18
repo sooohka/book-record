@@ -41,7 +41,7 @@ const theme: DefaultTheme = {
       height: "5rem",
     },
     bookItem: {
-      height: "9rem",
+      height: "12rem",
     },
   },
   zIndex: {

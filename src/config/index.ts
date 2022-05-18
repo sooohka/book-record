@@ -6,9 +6,6 @@ const config = {
   api: {
     base: process.env.REACT_APP_API_BASE as string,
   },
-  stateManagement: process.env.REACT_APP_STATE_MANANGEMENT as
-    | "redux"
-    | "recoil",
 };
 
 function check(obj: object) {

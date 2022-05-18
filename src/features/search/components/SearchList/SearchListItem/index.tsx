@@ -1,6 +1,8 @@
 import { SearchIcon } from "@heroicons/react/outline";
-import React, { useContext } from "react";
-import SearchContext from "../../../context/SearchContext";
+import { searchQueryState } from "modules/store/recoil/search";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import S from "./Style";
 
 type Props = {
@@ -8,13 +10,14 @@ type Props = {
 };
 
 function SearchListItem({ result }: Props) {
-  const { setQuery, searchBookList } = useContext(SearchContext);
+  const [query, setQuery] = useRecoilState(searchQueryState);
+  const navigate = useNavigate();
 
   const handleClick: React.MouseEventHandler<HTMLLIElement> = (e) => {
     // TODO: textContent 위험함
     if (e.currentTarget.textContent) {
       setQuery(e.currentTarget.textContent);
-      searchBookList(e.currentTarget.textContent);
+      navigate(`/search/results?query=${query}`);
     }
   };
 
@@ -22,7 +25,7 @@ function SearchListItem({ result }: Props) {
     if (e.key === " " || e.key === "Enter") {
       if (e.currentTarget.textContent) {
         setQuery(e.currentTarget.textContent);
-        searchBookList(e.currentTarget.textContent);
+        navigate(`/search/results?query=${query}`);
       }
     }
   };

@@ -1,20 +1,39 @@
-import axiosBookInstance from "./bookInstance";
+import QUERY_KEYS from "modules/reactQuery/queryKeys";
+import { QueryFunction } from "react-query";
+import axiosBookInstance from "../modules/axios/bookInstance";
 
-type QueryParam = {
-  query: string; // 검색을 원하는 문자열로서 UTF-8로 인코딩한다.
-  display?: number; // 10(기본값), 100(최대) 검색 결과 출력 건수 지정
-  start?: number; // 1(기본값), 1000(최대) 검색 시작 위치로 최대 1000까지 가능 -
-  sort?: "sim" | "date" | "count"; // sim(기본값), date 정렬 옵션: sim(유사도순), date(출간일순), count(판매량순)
+type GetBookQueryKey = [
+  typeof QUERY_KEYS.SEARCH,
+  { query: string; start: number }
+];
+type GetBookReturnType = {
+  books: Book[];
+  wordList: string[];
 };
+type GetBook = QueryFunction<GetBookReturnType, GetBookQueryKey>;
+const getBooks: GetBook = async (context) => {
+  const { queryKey } = context;
+  const [, { query, start }] = queryKey;
+  if (query === "") {
+    return { books: [], wordList: [] };
+  }
+  const res = await axiosBookInstance.get<Book[]>(
+    `/v1/search/book.json?query=${query}&start=${start}`
+  );
 
-const getBooks = (queryParam: QueryParam) => {
-  const parsedQuery = Object.keys(queryParam).reduce((p, key) => {
-    if (key === "query") return `${p}?query=${queryParam[key]}`;
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    return `${p}&${key}=${queryParam[key as keyof typeof queryParam]}`;
-  }, "");
-
-  return axiosBookInstance.get<Book[]>(`/v1/search/book.json${parsedQuery}`);
+  const wordList = res.data.reduce((prev: string[], book) => {
+    if (book.author.includes("<b") && !prev.includes(book.author)) {
+      return [...prev, book.author];
+    }
+    if (book.title.includes("<b") && !prev.includes(book.title)) {
+      return [...prev, book.title];
+    }
+    if (book.publisher.includes("<b") && !prev.includes(book.publisher)) {
+      return [...prev, book.publisher];
+    }
+    return [...prev];
+  }, []);
+  return { books: res.data, wordList };
 };
 
 export default getBooks;

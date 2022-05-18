@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 const Container = styled.li`
+  border-style: solid;
+  border-bottom-width: 1px;
+  border-color: ${({ theme }) => theme.colors.gray["500"]};
   display: flex;
+  padding: 1.5rem;
   cursor: pointer;
 
   height: ${({ theme }) => theme.size.bookItem.height};

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import config from "../config";
+import config from "../../config";
 
 type Item = {
   title: string; // 검색 결과 문서의 제목을 나타낸다. 제목에서 검색어와 일치하는 부분은 태그로 감싸져 있다.
@@ -66,7 +66,9 @@ axiosBookInstance.interceptors.response.use<AxiosResponse<Book[]>>(
     return { ...res, data: books };
   },
   // TODO:사소한 에러처리
-  (rej: AxiosResponse<ApiFailResult>) => {}
+  (rej: AxiosResponse<ApiFailResult>) => {
+    console.error(rej.data);
+  }
 );
 
 export type { ApiFailResult, ApiResult };

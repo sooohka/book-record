@@ -1,15 +1,28 @@
-import React, { useContext, useEffect, useRef } from "react";
-import SearchContext from "../../../context/SearchContext";
+import useDebounce from "hooks/useDebounce";
+import { searchQueryState } from "modules/store/recoil/search";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useSetRecoilState } from "recoil";
 import S from "./Style";
 import XCircleButton from "./XCircleButton";
 
 function SearchInput() {
-  const { clearInput, setInput, input } = useContext(SearchContext);
+  const [input, setInput] = useState("");
+  const setQuery = useSetRecoilState(searchQueryState);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const clearInput = () => {
+    setInput("");
+  };
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInput(e.currentTarget.value);
   };
+
+  const debounceCallback = useCallback(() => {
+    setQuery(input);
+  }, [input, setQuery]);
+
+  useDebounce(debounceCallback);
 
   useEffect(() => {
     inputRef.current?.focus();

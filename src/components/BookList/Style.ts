@@ -6,8 +6,6 @@ const Container = styled.ul`
 
   display: flex;
   overflow: scroll;
-
-  padding: 1rem;
 `;
 const S = { Container };
 
