@@ -1,10 +1,11 @@
-import { searchQueryState } from "modules/recoil/search";
-import React, { Suspense, useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import BookList from "../../../../components/BookList";
-import AppWrapper from "../../../../components/Layout/AppContainer";
-import Spinner from "../../../../components/Spinner";
+
+import BookList from "components/BookList";
+import AppWrapper from "components/Layout/AppContainer";
+import Spinner from "components/Spinner";
+import { searchQueryState } from "modules/recoil/search";
 
 function SearchResultPage() {
   const [params] = useSearchParams();

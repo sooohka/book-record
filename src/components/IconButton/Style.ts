@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Size } from "../../@types/style";
-import ButtonAnimation from "../../styles/ButtonAnimation";
+
+import ButtonAnimation from "styles/ButtonAnimation";
+import { Size } from "types/style";
 
 const Container = styled.button<Size>`
   position: relative;

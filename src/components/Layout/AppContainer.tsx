@@ -1,8 +1,9 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
-import Content from "./Content";
-import Footer from "./Footer";
-import Header from "./Header";
+
+import Content from "components/Layout/Content";
+import Footer from "components/Layout/Footer";
+import Header from "components/Layout/Header";
 
 const Container = styled.div`
   flex-direction: column;

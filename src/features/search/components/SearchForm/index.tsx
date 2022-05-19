@@ -1,10 +1,10 @@
-import { searchQueryState } from "modules/recoil/search";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import Button from "../../../../components/Button";
-import SearchInput from "./SearchInput";
-import S from "./Style";
+
+import Button from "components/Button";
+import SearchInput from "features/search/components/SearchForm/SearchInput";
+import S from "features/search/components/SearchForm/Style";
+import { searchQueryState } from "modules/recoil/search";
 
 function SearchForm() {
   const query = useRecoilValue(searchQueryState);

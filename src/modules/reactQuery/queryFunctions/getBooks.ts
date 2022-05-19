@@ -1,6 +1,8 @@
+import { QueryFunction } from "react-query";
+
 import getBooksAxios from "api/getBooksAxios";
 import QUERY_KEYS from "modules/reactQuery/queryKeys";
-import { QueryFunction } from "react-query";
+import { Book } from "types/book";
 
 type GetBookQueryKey = [
   typeof QUERY_KEYS.SEARCH,

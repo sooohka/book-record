@@ -1,8 +1,10 @@
-import { favoritesState } from "modules/recoil/favorite";
 import { useCallback } from "react";
 import { useRecoilState } from "recoil";
 
-function useFavoriteState() {
+import { favoritesState } from "modules/recoil/favorite";
+import { Book } from "types/book";
+
+export default function useFavoriteState() {
   const [favorites, setFavorites] = useRecoilState(favoritesState);
 
   const deleteFavorite = useCallback(
@@ -26,4 +28,3 @@ function useFavoriteState() {
 
   return { favorites, deleteFavorite, addFavorite, getFavoriteById };
 }
-export default useFavoriteState;

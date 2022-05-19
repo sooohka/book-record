@@ -20,19 +20,17 @@ const removeFavoriteModalOption: SweetAlertOptions = {
   showCancelButton: true,
 };
 
-const fireRemoveFavoriteModal = (callback: () => void) => {
-  Swal.fire(removeFavoriteModalOption).then(({ isConfirmed }) => {
-    if (isConfirmed) {
-      callback();
-    }
-  });
+const fireRemoveFavoriteModal = async (callback: () => void) => {
+  const { isConfirmed } = await Swal.fire(removeFavoriteModalOption);
+  if (isConfirmed) {
+    callback();
+  }
 };
-const fireAddFavoriteModal = (callback: () => void) => {
-  Swal.fire(addFavoriteModalOption).then(({ isConfirmed }) => {
-    if (isConfirmed) {
-      callback();
-    }
-  });
+const fireAddFavoriteModal = async (callback: () => void) => {
+  const { isConfirmed } = await Swal.fire(addFavoriteModalOption);
+  if (isConfirmed) {
+    callback();
+  }
 };
 
 export { fireAddFavoriteModal, fireRemoveFavoriteModal };

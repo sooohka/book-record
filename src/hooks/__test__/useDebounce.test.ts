@@ -1,6 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { wait } from "@testing-library/user-event/dist/utils";
-import useDebounce from "../useDebounce";
+
+import useDebounce from "hooks/useDebounce";
 
 describe("debounce Test", () => {
   const callback = jest.fn();

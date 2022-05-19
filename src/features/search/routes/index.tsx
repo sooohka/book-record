@@ -1,7 +1,7 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
-import SearchPage from "../page/SearchPage";
-import SearchResultPage from "../page/SearchResultPage";
+
+import SearchPage from "features/search/page/SearchPage";
+import SearchResultPage from "features/search/page/SearchResultPage";
 
 function SearchRoute() {
   return (

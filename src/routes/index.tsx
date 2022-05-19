@@ -1,7 +1,7 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
-import FavoritesRoute from "../features/favorites/routes";
-import SearchRoute from "../features/search/routes";
+
+import FavoritesRoute from "features/favorites/routes";
+import SearchRoute from "features/search/routes";
 
 function AppRoutes() {
   return (

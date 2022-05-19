@@ -1,11 +1,11 @@
+import { useQuery } from "react-query";
+import { useRecoilValue } from "recoil";
+
+import BookListItem from "components/BookList/BookListItem";
+import S from "components/BookList/Style";
 import getBooks from "modules/reactQuery/queryFunctions/getBooks";
 import QUERY_KEYS from "modules/reactQuery/queryKeys";
 import { searchPageState, searchQueryState } from "modules/recoil/search";
-import React from "react";
-import { useQuery } from "react-query";
-import { useRecoilValue } from "recoil";
-import BookListItem from "./BookListItem";
-import S from "./Style";
 
 function BookList() {
   const query = useRecoilValue(searchQueryState);

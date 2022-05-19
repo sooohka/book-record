@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import S from "./Style";
+
+import S from "components/Modal/Style";
 
 type Props = {
   title: string;

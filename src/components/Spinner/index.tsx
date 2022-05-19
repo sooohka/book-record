@@ -1,5 +1,6 @@
-import React, { forwardRef, HTMLAttributes } from "react";
-import S from "./Style";
+import { forwardRef, HTMLAttributes } from "react";
+
+import S from "components/Spinner/Style";
 
 type Props = HTMLAttributes<HTMLDivElement>;
 

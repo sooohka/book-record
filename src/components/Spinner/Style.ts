@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as SpinnerSvg } from "../../assets/spinner.svg";
+
+import { ReactComponent as SpinnerSvg } from "assets/spinner.svg";
 
 const Spinner = styled(SpinnerSvg)`
   position: absolute;

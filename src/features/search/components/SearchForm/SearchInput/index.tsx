@@ -1,9 +1,10 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useSetRecoilState } from "recoil";
+
+import S from "features/search/components/SearchForm/SearchInput/Style";
+import XCircleButton from "features/search/components/SearchForm/SearchInput/XCircleButton";
 import useDebounce from "hooks/useDebounce";
 import { searchQueryState } from "modules/recoil/search";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useSetRecoilState } from "recoil";
-import S from "./Style";
-import XCircleButton from "./XCircleButton";
 
 function SearchInput() {
   const [input, setInput] = useState("");

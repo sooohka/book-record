@@ -1,7 +1,8 @@
 import { render, RenderOptions } from "@testing-library/react";
-import React, { ReactElement, ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
+
+import theme from "styles/theme";
 
 function AllTheProviders({ children }: { children: ReactNode }) {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;

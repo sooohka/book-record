@@ -1,6 +1,7 @@
-import React, { forwardRef, HTMLAttributes } from "react";
-import { Size } from "../../@types/style";
-import S from "./Style";
+import { forwardRef, HTMLAttributes } from "react";
+
+import S from "components/IconButton/Style";
+import { Size } from "types/style";
 
 type Props = {
   Icon: React.FunctionComponent<

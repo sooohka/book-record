@@ -1,5 +1,6 @@
-import { XOutlinedIcon } from "assets/svgs";
 import styled from "styled-components";
+
+import { XOutlinedIcon } from "assets/svgs";
 
 const Container = styled.dialog`
   position: absolute;

@@ -1,5 +1,6 @@
-import { SearchSolidIcon, XCircleSolidIcon } from "assets/svgs";
 import styled from "styled-components";
+
+import { SearchSolidIcon, XCircleSolidIcon } from "assets/svgs";
 
 const Container = styled.div`
   flex-grow: 1;

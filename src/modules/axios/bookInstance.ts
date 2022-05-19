@@ -1,5 +1,6 @@
 import axios from "axios";
-import config from "../../config";
+
+import config from "config";
 
 /* //TODO:cors 해결 필요 */
 const axiosBookInstance = axios.create({

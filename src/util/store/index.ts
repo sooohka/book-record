@@ -1,5 +1,7 @@
-import STORE_KEYS from "modules/store/storeKeys";
 import store from "store";
+
+import STORE_KEYS from "modules/store/storeKeys";
+import { Book } from "types/book";
 
 const getFavorites = () => {
   const books = store.get(STORE_KEYS.FAVORITES) as Book[];

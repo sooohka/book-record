@@ -1,12 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 import {
   BookmarkOutlinedIcon,
   HeartOutlinedIcon,
   SearchOutlineIcon,
 } from "assets/svgs";
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import IconButton from "../../IconButton";
-import S from "./Style";
+import IconButton from "components/IconButton";
+import S from "components/Layout/Footer/Style";
 
 function Footer() {
   const navigate = useNavigate();

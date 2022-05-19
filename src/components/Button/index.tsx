@@ -1,6 +1,7 @@
-import React, { DetailedHTMLProps, forwardRef, ReactNode } from "react";
-import { Color, Size } from "../../@types/style";
-import S from "./Style";
+import { DetailedHTMLProps, forwardRef, ReactNode } from "react";
+
+import S from "components/Button/Style";
+import { Color, Size } from "types/style";
 
 type Props = {
   variant?: "contained" | "outlined";

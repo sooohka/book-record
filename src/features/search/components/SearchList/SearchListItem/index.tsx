@@ -1,7 +1,7 @@
-import { SearchOutlineIcon } from "assets/svgs";
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import S from "./Style";
+
+import { SearchOutlineIcon } from "assets/svgs";
+import S from "features/search/components/SearchList/SearchListItem/Style";
 
 type Props = {
   result: string;

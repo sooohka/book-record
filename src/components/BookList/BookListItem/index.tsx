@@ -1,18 +1,20 @@
+import { useEffect, useState } from "react";
+
+import noImage from "assets/noimg3.png";
 import {
   BookmarkOutlinedIcon,
   BookmarkSolidIcon,
   HeartOutlinedIcon,
   HeartSolidIcon,
 } from "assets/svgs";
+import S from "components/BookList/BookListItem/Style";
+import IconButton from "components/IconButton";
 import useFavoriteState from "hooks/recoil/useFavoriteState";
-import React, { useEffect, useState } from "react";
+import { Book } from "types/book";
 import {
   fireAddFavoriteModal,
   fireRemoveFavoriteModal,
 } from "util/swal/favoriteAlert";
-import noImage from "../../../assets/noimg3.png";
-import IconButton from "../../IconButton";
-import S from "./Style";
 
 type Props = {
   book: Book;
@@ -35,9 +37,9 @@ function BookListItem(props: Props) {
 
   const handleLiClick = () => {
     if (isFavorite) {
-      fireRemoveFavoriteModal(() => deleteFavorite(book));
+      fireRemoveFavoriteModal(() => deleteFavorite(book)).catch(() => {});
     } else {
-      fireAddFavoriteModal(() => addFavorite(book));
+      fireAddFavoriteModal(() => addFavorite(book)).catch(() => {});
     }
   };
 

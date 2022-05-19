@@ -1,10 +1,11 @@
-import { ArrowLeftOutlinedIcon } from "assets/svgs";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { useNavigate } from "react-router-dom";
-import IconButton from "../../../../components/IconButton";
-import SearchForm from "../../components/SearchForm";
-import SearchList from "../../components/SearchList";
-import S from "./Style";
+
+import { ArrowLeftOutlinedIcon } from "assets/svgs";
+import IconButton from "components/IconButton";
+import SearchForm from "features/search/components/SearchForm";
+import SearchList from "features/search/components/SearchList";
+import S from "features/search/page/SearchPage/Style";
 
 function SearchPage() {
   const navigate = useNavigate();

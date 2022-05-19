@@ -1,9 +1,9 @@
-import { HeartOutlinedIcon, SearchOutlineIcon } from "assets/svgs";
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/logo.png";
-import IconButton from "../../IconButton";
-import S from "./Style";
+
+import logo from "assets/logo.png";
+import { HeartOutlinedIcon, SearchOutlineIcon } from "assets/svgs";
+import IconButton from "components/IconButton";
+import S from "components/Layout/Header/Style";
 
 function Header() {
   const navigate = useNavigate();

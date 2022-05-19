@@ -1,5 +1,4 @@
-import React from "react";
-import AppWrapper from "../../../../components/Layout/AppContainer";
+import AppWrapper from "components/Layout/AppContainer";
 
 function FavoritesPage() {
   return (

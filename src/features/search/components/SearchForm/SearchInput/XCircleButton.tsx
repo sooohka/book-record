@@ -1,5 +1,6 @@
-import React, { forwardRef } from "react";
-import S from "./Style";
+import { forwardRef } from "react";
+
+import S from "features/search/components/SearchForm/SearchInput/Style";
 
 type Button = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
+
 import QueryClientProvider from "provider/QueryClientProvider";
-import React, { ReactNode } from "react";
-import RecoilProvider from "./RecoilProvider";
-import RouterProvider from "./Router";
-import StyleProvider from "./Style";
+import RecoilProvider from "provider/RecoilProvider";
+import RouterProvider from "provider/Router";
+import StyleProvider from "provider/Style";
 
 function AppProvider({ children }: { children: ReactNode }) {
   return (

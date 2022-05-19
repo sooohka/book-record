@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import { Color, Size } from "../../@types/style";
-import ButtonAnimation from "../../styles/ButtonAnimation";
+
+import ButtonAnimation from "styles/ButtonAnimation";
+import { Color, Size } from "types/style";
 
 type ButtonType = {
   variant?: "contained" | "outlined";
