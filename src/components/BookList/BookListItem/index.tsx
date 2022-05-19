@@ -1,6 +1,15 @@
-import { BookmarkIcon, HeartIcon } from "@heroicons/react/outline";
-import React from "react";
-import Swal from "sweetalert2";
+import {
+  BookmarkOutlinedIcon,
+  BookmarkSolidIcon,
+  HeartOutlinedIcon,
+  HeartSolidIcon,
+} from "assets/svgs";
+import useFavoriteState from "hooks/recoil/useFavoriteState";
+import React, { useEffect, useState } from "react";
+import {
+  fireAddFavoriteModal,
+  fireRemoveFavoriteModal,
+} from "util/swal/favoriteAlert";
 import noImage from "../../../assets/noimg3.png";
 import IconButton from "../../IconButton";
 import S from "./Style";
@@ -10,9 +19,13 @@ type Props = {
 };
 
 function BookListItem(props: Props) {
-  const {
-    book: { author, image, pubdate, publisher, title },
-  } = props;
+  const { addFavorite, deleteFavorite } = useFavoriteState();
+  const { book } = props;
+  const { author, image, pubdate, publisher, title, isbn } = book;
+  const { getFavoriteById } = useFavoriteState();
+
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isBookMarked] = useState(false);
 
   const handleImageLoadError: React.ReactEventHandler<HTMLImageElement> = (
     e
@@ -21,36 +34,42 @@ function BookListItem(props: Props) {
   };
 
   const handleLiClick = () => {
-    Swal.fire({
-      title: "즐겨찾기 추가",
-      icon: "question",
-      confirmButtonText: "추가",
-      cancelButtonText: "취소",
-      showCancelButton: true,
-    }).then(({ isConfirmed }) => {
-      if (isConfirmed) {
-        // 즐겨찾기 추가 로직
-      }
-    });
+    if (isFavorite) {
+      fireRemoveFavoriteModal(() => deleteFavorite(book));
+    } else {
+      fireAddFavoriteModal(() => addFavorite(book));
+    }
   };
-  // console.log(`${publisher} / ${pubdate}`);
+
+  useEffect(() => {
+    if (getFavoriteById(isbn)) {
+      setIsFavorite(true);
+    }
+    return () => {
+      setIsFavorite(false);
+    };
+  }, [getFavoriteById, isbn]);
 
   return (
-    // TODO:Container 클릭시 모달 열리게 하기, link modal에 전달
     <S.Container onClick={handleLiClick} tabIndex={0}>
       <S.BookImg src={image} alt={title} onError={handleImageLoadError} />
       <S.InfoBox>
         <S.Title dangerouslySetInnerHTML={{ __html: title }} />
         <S.SubTitle dangerouslySetInnerHTML={{ __html: author }} />
         <S.Paragraph
-          dangerouslySetInnerHTML={{
-            __html: `${publisher} / ${pubdate}`,
-          }}
+          dangerouslySetInnerHTML={{ __html: `${publisher} / ${pubdate}` }}
         />
         <S.IconBox>
-          {/* TODO:check되었으면 solid 아니면 outline */}
-          <IconButton width="2rem" height="2rem" Icon={HeartIcon} />
-          <IconButton width="2rem" height="2rem" Icon={BookmarkIcon} />
+          <IconButton
+            width="2rem"
+            height="2rem"
+            Icon={isFavorite ? HeartSolidIcon : HeartOutlinedIcon}
+          />
+          <IconButton
+            width="2rem"
+            height="2rem"
+            Icon={isBookMarked ? BookmarkSolidIcon : BookmarkOutlinedIcon}
+          />
         </S.IconBox>
       </S.InfoBox>
     </S.Container>

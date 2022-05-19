@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from "@heroicons/react/outline";
+import { ArrowLeftOutlinedIcon } from "assets/svgs";
 import React, { Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import IconButton from "../../../../components/IconButton";
@@ -15,7 +15,7 @@ function SearchPage() {
           onClick={() => navigate(-1)}
           width="2.5rem"
           height="2.5rem"
-          Icon={ArrowLeftIcon}
+          Icon={ArrowLeftOutlinedIcon}
         />
         <SearchForm />
       </S.Header>

@@ -1,5 +1,5 @@
+import { XOutlinedIcon } from "assets/svgs";
 import styled from "styled-components";
-import XIcon from "@heroicons/react/outline/XIcon";
 
 const Container = styled.dialog`
   position: absolute;
@@ -64,7 +64,7 @@ const CloseButton = styled.button`
   }
 `;
 
-const CloseIcon = styled(XIcon)`
+const CloseIcon = styled(XOutlinedIcon)`
   width: 2rem;
   height: 2rem;
 

@@ -1,5 +1,5 @@
 import useDebounce from "hooks/useDebounce";
-import { searchQueryState } from "modules/store/recoil/search";
+import { searchQueryState } from "modules/recoil/search";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import S from "./Style";

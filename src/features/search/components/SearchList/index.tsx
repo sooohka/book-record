@@ -1,8 +1,8 @@
-import getBooks from "api/getBooks";
 import SearchListItem from "features/search/components/SearchList/SearchListItem";
 import S from "features/search/components/SearchList/Style";
+import getBooks from "modules/reactQuery/queryFunctions/getBooks";
 import QUERY_KEYS from "modules/reactQuery/queryKeys";
-import { searchPageState, searchQueryState } from "modules/store/recoil/search";
+import { searchPageState, searchQueryState } from "modules/recoil/search";
 import React from "react";
 import { useQuery } from "react-query";
 import { useRecoilValue } from "recoil";
@@ -15,11 +15,12 @@ function SearchList() {
     getBooks
   );
   if (queryResult.isLoading || queryResult.isIdle) {
-    return <span>Loading...</span>;
+    return <p>Loading...</p>;
   }
 
   if (queryResult.isError) {
-    return <span>Error: 에러</span>;
+    // TODO: 에러처리
+    return <p>Error: 에러</p>;
   }
   return (
     <S.Container>

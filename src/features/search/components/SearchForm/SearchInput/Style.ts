@@ -1,8 +1,5 @@
+import { SearchSolidIcon, XCircleSolidIcon } from "assets/svgs";
 import styled from "styled-components";
-import {
-  SearchIcon as HiSearchIcon,
-  XCircleIcon as HiXCircleIcon,
-} from "@heroicons/react/solid";
 
 const Container = styled.div`
   flex-grow: 1;
@@ -31,7 +28,7 @@ const Input = styled.input`
   }
 `;
 
-const SearchIcon = styled(HiSearchIcon)`
+const SearchIcon = styled(SearchSolidIcon)`
   width: 2rem;
   height: 2rem;
   margin-right: 7px;
@@ -39,7 +36,7 @@ const SearchIcon = styled(HiSearchIcon)`
   color: ${({ theme }) => theme.colors.gray[600]};
 `;
 
-const XCircleIcon = styled(HiXCircleIcon)`
+const XCircleIcon = styled(XCircleSolidIcon)`
   width: 2rem;
   height: 2rem;
 

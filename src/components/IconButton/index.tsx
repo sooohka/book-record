@@ -1,9 +1,14 @@
-import React, { forwardRef, HTMLAttributes, SVGProps } from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 import { Size } from "../../@types/style";
 import S from "./Style";
 
 type Props = {
-  Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  Icon: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & {
+      title?: string | undefined;
+    }
+  >;
+  //  (props: SVGProps<SVGElement>) => ReactElement;
   label?: string | null;
 } & Size &
   HTMLAttributes<HTMLButtonElement>;

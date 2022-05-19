@@ -1,9 +1,9 @@
+import { HeartOutlinedIcon, SearchOutlineIcon } from "assets/svgs";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { HeartIcon, SearchIcon } from "@heroicons/react/outline";
-import S from "./Style";
 import logo from "../../../assets/logo.png";
 import IconButton from "../../IconButton";
+import S from "./Style";
 
 function Header() {
   const navigate = useNavigate();
@@ -26,12 +26,12 @@ function Header() {
         <IconButton
           onClick={handleSearchIconButtonClick}
           width="3rem"
-          Icon={SearchIcon}
+          Icon={SearchOutlineIcon}
         />
         <IconButton
           onClick={handleHeartIconButtonClick}
           width="3rem"
-          Icon={HeartIcon}
+          Icon={HeartOutlinedIcon}
         />
       </S.ToolBox>
       <S.Avatar>

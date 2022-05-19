@@ -1,6 +1,6 @@
-import getBooks from "api/getBooks";
+import getBooks from "modules/reactQuery/queryFunctions/getBooks";
 import QUERY_KEYS from "modules/reactQuery/queryKeys";
-import { searchPageState, searchQueryState } from "modules/store/recoil/search";
+import { searchPageState, searchQueryState } from "modules/recoil/search";
 import React from "react";
 import { useQuery } from "react-query";
 import { useRecoilValue } from "recoil";
@@ -10,6 +10,7 @@ import S from "./Style";
 function BookList() {
   const query = useRecoilValue(searchQueryState);
   const page = useRecoilValue(searchPageState);
+
   const queryResult = useQuery(
     [QUERY_KEYS.SEARCH, { start: page, query }],
     getBooks,

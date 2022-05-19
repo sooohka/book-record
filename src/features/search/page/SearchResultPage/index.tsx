@@ -1,4 +1,4 @@
-import { searchQueryState } from "modules/store/recoil/search";
+import { searchQueryState } from "modules/recoil/search";
 import React, { Suspense, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSetRecoilState } from "recoil";

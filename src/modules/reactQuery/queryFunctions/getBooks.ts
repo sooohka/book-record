@@ -1,6 +1,6 @@
+import getBooksAxios from "api/getBooksAxios";
 import QUERY_KEYS from "modules/reactQuery/queryKeys";
 import { QueryFunction } from "react-query";
-import axiosBookInstance from "../modules/axios/bookInstance";
 
 type GetBookQueryKey = [
   typeof QUERY_KEYS.SEARCH,
@@ -17,9 +17,12 @@ const getBooks: GetBook = async (context) => {
   if (query === "") {
     return { books: [], wordList: [] };
   }
-  const res = await axiosBookInstance.get<Book[]>(
-    `/v1/search/book.json?query=${query}&start=${start}`
-  );
+
+  const res = await getBooksAxios(query, start);
+  const books: Book[] = res.data.map((book) => ({
+    ...book,
+    meta: { isBookMarked: false, isFavorite: false },
+  }));
 
   const wordList = res.data.reduce((prev: string[], book) => {
     if (book.author.includes("<b") && !prev.includes(book.author)) {
@@ -33,7 +36,7 @@ const getBooks: GetBook = async (context) => {
     }
     return [...prev];
   }, []);
-  return { books: res.data, wordList };
+  return { books, wordList };
 };
 
 export default getBooks;

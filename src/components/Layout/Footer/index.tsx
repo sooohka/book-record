@@ -1,4 +1,8 @@
-import { HeartIcon, SearchIcon, BookmarkIcon } from "@heroicons/react/outline";
+import {
+  BookmarkOutlinedIcon,
+  HeartOutlinedIcon,
+  SearchOutlineIcon,
+} from "assets/svgs";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import IconButton from "../../IconButton";
@@ -14,7 +18,7 @@ function Footer() {
           onClick={() => navigate("/search")}
           width="4rem"
           height="4rem"
-          Icon={SearchIcon}
+          Icon={SearchOutlineIcon}
           label="search"
         />
       </S.LinkContainer>
@@ -23,7 +27,7 @@ function Footer() {
           onClick={() => navigate("/favorites")}
           width="4rem"
           height="4rem"
-          Icon={HeartIcon}
+          Icon={HeartOutlinedIcon}
           label="favorites"
         />
       </S.LinkContainer>
@@ -32,7 +36,7 @@ function Footer() {
           onClick={() => navigate("/finished")}
           width="4rem"
           height="4rem"
-          Icon={BookmarkIcon}
+          Icon={BookmarkOutlinedIcon}
           label="finished"
         />
       </S.LinkContainer>

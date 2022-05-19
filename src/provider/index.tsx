@@ -1,18 +1,18 @@
 import QueryClientProvider from "provider/QueryClientProvider";
 import React, { ReactNode } from "react";
+import RecoilProvider from "./RecoilProvider";
 import RouterProvider from "./Router";
-import StateManagementProvider from "./StateManagement";
 import StyleProvider from "./Style";
 
 function AppProvider({ children }: { children: ReactNode }) {
   return (
-    <StateManagementProvider>
+    <RecoilProvider>
       <QueryClientProvider>
         <StyleProvider>
           <RouterProvider>{children}</RouterProvider>
         </StyleProvider>
       </QueryClientProvider>
-    </StateManagementProvider>
+    </RecoilProvider>
   );
 }
 

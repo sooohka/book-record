@@ -1,4 +1,4 @@
-import { searchQueryState } from "modules/store/recoil/search";
+import { searchQueryState } from "modules/recoil/search";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
