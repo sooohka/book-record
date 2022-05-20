@@ -10,6 +10,9 @@ import { ReactComponent as SearchOutlineIcon } from "assets/svgs/searchOutlined.
 import { ReactComponent as SearchSolidIcon } from "assets/svgs/searchSolid.svg";
 import { ReactComponent as XCircleSolidIcon } from "assets/svgs/xCircleSolid.svg";
 import { ReactComponent as XOutlinedIcon } from "assets/svgs/xOutlined.svg";
+import { ReactComponent as CheckOutlinedIcon } from "assets/svgs/checkOutlined.svg";
+import { ReactComponent as CheckSolidIcon } from "assets/svgs/checkSolid.svg";
+import { ReactComponent as BookSolidIcon } from "assets/svgs/bookSolid.svg";
 
 export {
   BookmarkOutlinedIcon,
@@ -24,4 +27,7 @@ export {
   ArrowRightOutlinedIcon,
   ArrowUpOutlinedIcon,
   XOutlinedIcon,
+  CheckOutlinedIcon,
+  CheckSolidIcon,
+  BookSolidIcon,
 };

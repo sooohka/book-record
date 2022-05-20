@@ -1,27 +1,17 @@
-import { useQuery } from "react-query";
-import { useRecoilValue } from "recoil";
-
 import BookListItem from "components/BookList/BookListItem";
 import S from "components/BookList/Style";
-import getBooks from "modules/reactQuery/queryFunctions/getBooks";
-import QUERY_KEYS from "modules/reactQuery/queryKeys";
-import { searchPageState, searchQueryState } from "modules/recoil/search";
+import { Book } from "types/book";
 
-function BookList() {
-  const query = useRecoilValue(searchQueryState);
-  const page = useRecoilValue(searchPageState);
+type Props = {
+  books: Book[];
+};
 
-  const queryResult = useQuery(
-    [QUERY_KEYS.SEARCH, { start: page, query }],
-    getBooks,
-    {}
-  );
-
+function BookList({ books }: Props) {
   return (
     <S.Container>
       {/* //FIXME: fix ? */}
-      {queryResult.data?.books.map((book) => (
-        <BookListItem key={book.isbn} book={book} />
+      {books.map((book, i) => (
+        <BookListItem key={`${book.isbn}-${i}`} book={book} />
       ))}
     </S.Container>
   );

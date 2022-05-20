@@ -31,7 +31,7 @@ type ApiFailResult = {
 const getBooksAxios = async (query: string, start: number) => {
   try {
     const { data } = await axiosBookInstance.get<ApiResult>(
-      `/v1/search/book.json?query=${query}&start=${start}`
+      `/v1/search/book.json?query=${query}&start=${start}&sort=count`
     );
 
     // TODO:axios error처리

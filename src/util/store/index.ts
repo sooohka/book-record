@@ -3,35 +3,46 @@ import store from "store";
 import STORE_KEYS from "modules/store/storeKeys";
 import { Book } from "types/book";
 
-const getFavorites = () => {
-  const books = store.get(STORE_KEYS.FAVORITES) as Book[];
+const get = (key: string) => () => {
+  const books = store.get(key) as Book[];
   return books ?? [];
 };
 
-const getFavoriteById = (book: Book) => {
-  let foundBook;
-
-  store.each((v: Book) => {
-    if (v.isbn === book.isbn) {
-      foundBook = v;
-    }
-  });
-  return foundBook;
-};
-
-const addFavorite = (book: Book) => {
-  const favorites = (store.get(STORE_KEYS.FAVORITES) as Book[]) ?? [];
+const add = (key: string) => (book: Book) => {
+  const favorites = (store.get(key) as Book[]) ?? [];
   favorites.push(book);
   store.set(STORE_KEYS.FAVORITES, favorites);
 };
 
-const setFavorites = (books: Book[]) => {
-  const prev = getFavorites;
+const set = (key: string) => (books: Book[]) => {
+  const prev = get(key);
   try {
-    store.set(STORE_KEYS.FAVORITES, books);
+    store.set(key, books);
   } catch (e) {
-    store.set(STORE_KEYS.FAVORITES, prev);
+    store.set(key, prev);
   }
 };
 
-export { getFavorites, addFavorite, setFavorites, getFavoriteById };
+const favorites = {
+  getFavorites: get(STORE_KEYS.FAVORITES),
+  addFavorites: add(STORE_KEYS.FAVORITES),
+  setFavorites: set(STORE_KEYS.FAVORITES),
+};
+
+const finishedBooks = {
+  getFinishedBooks: get(STORE_KEYS.FINISHED_BOOKS),
+  addFinishedBooks: add(STORE_KEYS.FINISHED_BOOKS),
+  setFinishedBooks: set(STORE_KEYS.FINISHED_BOOKS),
+};
+
+const { addFavorites, getFavorites, setFavorites } = favorites;
+const { addFinishedBooks, getFinishedBooks, setFinishedBooks } = finishedBooks;
+
+export {
+  addFinishedBooks,
+  getFinishedBooks,
+  setFinishedBooks,
+  addFavorites,
+  getFavorites,
+  setFavorites,
+};

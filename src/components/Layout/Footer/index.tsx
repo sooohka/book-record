@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import {
-  BookmarkOutlinedIcon,
+  CheckOutlinedIcon,
   HeartOutlinedIcon,
   SearchOutlineIcon,
 } from "assets/svgs";
@@ -36,7 +36,7 @@ function Footer() {
           onClick={() => navigate("/finished")}
           width="4rem"
           height="4rem"
-          Icon={BookmarkOutlinedIcon}
+          Icon={CheckOutlinedIcon}
           label="finished"
         />
       </S.LinkContainer>

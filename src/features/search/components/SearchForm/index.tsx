@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
 
 import Button from "components/Button";
 import SearchInput from "features/search/components/SearchForm/SearchInput";
 import S from "features/search/components/SearchForm/Style";
-import { searchQueryState } from "modules/recoil/search";
 
 function SearchForm() {
-  const query = useRecoilValue(searchQueryState);
   const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
-    // TODO: debouncing때문에 검색 늦게 되는현상
-    navigate(`/search/results?query=${query}`);
+
+    // query값 바뀌기를 기다려줘야하기 때문에 setTimeout 적용
+    setTimeout(() => {
+      navigate(`/search/results`);
+    }, 300);
   };
 
   return (
