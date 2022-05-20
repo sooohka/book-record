@@ -21,6 +21,11 @@ jobs:
       - name: Install deps
         run: yarn
 
+      - name: Add ENV Variables
+        run: echo "REACT_APP_API_BASE=$REACT_APP_API_BASE" >> .env.production
+        env:
+          REACT_APP_API_BASE: ${{secrets.REACT_APP_API_BASE}}
+
       - name: Build
         run: yarn build
 
