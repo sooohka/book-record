@@ -33,7 +33,6 @@ const getBooksAxios = async (query: string, start: number) => {
     const { data } = await axiosBookInstance.get<ApiResult>(
       `/v1/search/book.json?query=${query}&start=${start}&sort=count`
     );
-
     // TODO:axios error처리
     const books = data.items.map((d) => {
       const {
@@ -64,7 +63,8 @@ const getBooksAxios = async (query: string, start: number) => {
     const error = e as AxiosError<ApiFailResult>;
     console.error(e);
     console.error(error);
-    throw e;
+    // throw e;
+    return { data: [] };
   }
 };
 
